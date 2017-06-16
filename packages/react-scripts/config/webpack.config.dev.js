@@ -212,6 +212,8 @@ module.exports = {
             loader: require.resolve('css-loader'),
             options: {
               importLoaders: 1,
+              modules: true,
+              localIdentName: '[name]__[locale]__[hash:base64:5]',
             },
           },
           {
