@@ -191,12 +191,21 @@ module.exports = {
         options: {
           // @remove-on-eject-begin
           babelrc: false,
-          presets: [require.resolve('babel-preset-react-app')],
+          presets: [require.resolve('babel-preset-react-app'), 'stage-0'],
           // @remove-on-eject-end
           // This is a feature of `babel-loader` for webpack (not Babel itself).
           // It enables caching results in ./node_modules/.cache/babel-loader/
           // directory for faster rebuilds.
           cacheDirectory: true,
+          plugins: [
+            'transform-decorators-legacy',
+            [
+              'module-resolver',
+              {
+                root: ['./src'],
+              },
+            ],
+          ],
         },
       },
       // "postcss" loader applies autoprefixer to our CSS.
